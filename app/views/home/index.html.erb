@@ -1,0 +1,32 @@
+<h1>FizzBuzz With Friends</h1>
+<% flash.each do |key, message| %>
+    <p class="<%= key %> flash"><%= key.to_s.humanize %>: <%= message %></p>
+<% end %>
+
+<%= form_tag home_call_phone_path, method: :post do %>
+    <%= text_field_tag :phone_number, '', placeholder: 'phone number', required: true %>
+    <%= number_field_tag :delay, '', placeholder: 'delay in minutes', required: true %>
+    <p><%= button_tag 'Play!', type: 'submit' %></p>
+<% end %>
+
+<div>
+  <table>
+    <caption>Previous calls</caption>
+    <thead>
+    <th>To</th>
+    <th>Delay</th>
+    <th>Input number</th>
+    <th>Created</th>
+    <th>Try again</th>
+    </thead>
+    <% @games.each do |g| %>
+        <tr>
+          <td><%= g.phone_number %></td>
+          <td><%= g.delay_minutes %></td>
+          <td><%= g.fizzbuzz_number.present? ? g.fizzbuzz_number : 'No answer yet' %></td>
+          <td><%= g.created_at.to_formatted_s(:short) %></td>
+          <td><%= button_to 'Call', home_initiate_replay_path(id: g.id), method: :post, remote: true %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

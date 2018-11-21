@@ -1,0 +1,47 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  font-size: 14px;
+  color: ivory;
+  font-family: "Gill Sans",Arial,sanserif;
+  background: #6b88a1;
+  .content {
+    width: 500px;
+    margin: 40px auto;
+    padding: 10px;
+  }
+
+  .flash {
+    &.error {
+      padding: 10px;
+      border: 1px solid #aaa;
+      border-radius: 6px;
+      background-color: #ab0503;
+    }
+  }
+  .center {
+    text-align: center;
+  }
+
+  form {
+    input {
+      font-size: 20px;
+      padding: 3px;
+    }
+    button[type=submit] {
+      font-size: 20px;
+      padding: 4px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  table {
+    width: 400px;
+    td {
+//      text-align: center
+      input { width: 100%; }
+    }
+  }
+}
